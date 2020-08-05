@@ -5,9 +5,10 @@
 - Make a python virtual environment
 - run `pip install -r requirements.txt`
 - run `flask run`
+- Go to `http://127.0.0.1:5000/`
 
 
-- DB is present with few songs 
+DB is present with few songs 
 
 
 Your task is to create a music management/sharing/streaming platform. A user should be able to upload/download/play/delete/search songs. All songs go into a common playlist (which shows up when the user wants to view all songs).
@@ -25,3 +26,6 @@ Detailed requirements:
     2. Clicking on the unique URL of a song should lead to this page.
     3. Clicking on a song entity from either search or view all pages should also lead to this page.
     4. There should be an option to download this song
+
+
+
