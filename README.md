@@ -2,12 +2,12 @@
 
 
 ## Installation 
-Make a python virtual environment
-run `pip install -r requirements.txt`
-run `flask run`
+- Make a python virtual environment
+- run `pip install -r requirements.txt`
+- run `flask run`
 
 
-DB is present with few songs 
+- DB is present with few songs 
 
 
 Your task is to create a music management/sharing/streaming platform. A user should be able to upload/download/play/delete/search songs. All songs go into a common playlist (which shows up when the user wants to view all songs).
