@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 from app.auth import login_required
 from app.db import get_db
 
-bp = Blueprint('blog', __name__)
+bp = Blueprint('music', __name__)
 
 
 @bp.route('/')
@@ -26,7 +26,7 @@ def index():
             "SELECT * FROM song WHERE {} LIKE '%{}%' ORDER BY title".format(
                 query_param, search_term)
         ).fetchall()
-    return render_template('blog/index.html', posts=posts)
+    return render_template('music/index.html', posts=posts)
 
 
 @bp.route('/create', methods=('GET', 'POST'))
@@ -52,9 +52,9 @@ def create():
                 (title, artist, album, song_url)
             )
             db.commit()
-            return redirect(url_for('blog.index'))
+            return redirect(url_for('music.index'))
 
-    return render_template('blog/create.html')
+    return render_template('music/create.html')
 
 
 def get_post(id, check_author=True):
@@ -71,11 +71,11 @@ def get_post(id, check_author=True):
     return post
 
 
-@bp.route('/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/<int:id>/play', methods=('GET', 'POST'))
 def update(id):
     post = get_post(id)
 
-    return render_template('blog/update.html', post=post)
+    return render_template('music/play.html', post=post)
 
 
 
@@ -85,4 +85,4 @@ def delete(id):
     db = get_db()
     db.execute('DELETE FROM song WHERE id = ?', (id,))
     db.commit()
-    return redirect(url_for('blog.index'))
+    return redirect(url_for('music.index'))
